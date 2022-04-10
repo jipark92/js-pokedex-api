@@ -9,17 +9,22 @@ const pokeMove2 = document.querySelector('.pokemon-move-2')
 const pokeMove3 = document.querySelector('.pokemon-move-3')
 const pokeMove4 = document.querySelector('.pokemon-move-4')
 
+//API Function
 const getPokeMon = (pokemon) => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
     .then ((response)=>{
         return response.json();
     })
     .then ((response)=>{
-        console.log(response)
+        // console.log(response)
         showInfo(response)
+    })
+    .catch(()=>{
+        pokeMonImg.src = "https://img.icons8.com/windows/344/error-cloud.png"
     })
 }
 
+//grab API data if there is a word in the input box
 const getData = () => {
     searchBtn.addEventListener('click',() =>{
         let pokemon = inputBox.value
@@ -28,11 +33,13 @@ const getData = () => {
             return
         } else if (inputBox.value) {
             getPokeMon(pokemon)
+            pokeMonImg.style.visibility = "visible"
         }
     })
 }
 getData()
 
+//grab data then show it on display
 const showInfo = (response) => {
     pokeMonImg.src = response.sprites.front_default;
     pokeName.textContent = response.name;
@@ -42,4 +49,20 @@ const showInfo = (response) => {
     pokeMove2.textContent = response.moves[1].move.name
     pokeMove3.textContent = response.moves[2].move.name
     pokeMove4.textContent = response.moves[3].move.name
+
+    //capitalizes name and type
+    let capitalizedName = pokeName.textContent.charAt(0).toUpperCase()
+    pokeName.textContent = capitalizedName + pokeName.textContent.slice(1);
+    let capitalizedType = pokeType.textContent.charAt(0).toUpperCase()
+    pokeType.textContent = capitalizedType + pokeType.textContent.slice(1)
+
+    //capitalizes first word of each moves
+    let capitalizedMove1 = pokeMove1.textContent.charAt(0).toUpperCase()
+    pokeMove1.textContent = capitalizedMove1 + pokeMove1.textContent.slice(1)
+    let capitalizedMove2 = pokeMove1.textContent.charAt(0).toUpperCase()
+    pokeMove2.textContent = capitalizedMove2 + pokeMove2.textContent.slice(1)
+    let capitalizedMove3 = pokeMove3.textContent.charAt(0).toUpperCase()
+    pokeMove3.textContent = capitalizedMove3 + pokeMove3.textContent.slice(1)
+    let capitalizedMove4 = pokeMove4.textContent.charAt(0).toUpperCase()
+    pokeMove4.textContent = capitalizedMove4 + pokeMove4.textContent.slice(1)
 }
