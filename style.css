@@ -9,6 +9,7 @@ body {
     width: 100vw;
     border: 1px solid black;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -82,6 +83,12 @@ body {
     transform: scale(1.1)
 }
 
+.pokemon {
+    height: 50%;
+    width: 50%;
+    visibility: hidden;
+}
+
 /* information selectors */
 .information-container{
     border: 4px solid black;
@@ -113,9 +120,4 @@ body {
 
 li {
     list-style: none;
-}
-
-img{ 
-    height: 100%;
-    width: 100%;
 }
