@@ -46,24 +46,20 @@ const showInfo = (response) => {
     pokeName.textContent = response.name;
     pokeType.textContent = response.types[0].type.name;
     pokeHeight.textContent = response.height + "ft";    
-    //no same moves
-    if (randomNumber() === randomNumber()){
-        return
-    } else {
-        pokeMove1.textContent = response.moves[randomNumber()].move.name;
-        pokeMove2.textContent = response.moves[randomNumber()].move.name;
-        pokeMove3.textContent = response.moves[randomNumber()].move.name;
-        pokeMove4.textContent = response.moves[randomNumber()].move.name;
-    }
+    pokeMove1.textContent = response.moves[randomNumber()].move.name;
+    pokeMove2.textContent = response.moves[randomNumber()].move.name;
+    pokeMove3.textContent = response.moves[randomNumber()].move.name;
+    pokeMove4.textContent = response.moves[randomNumber()].move.name;
 };
 
 const randomNumber = () => {
-    return Math.floor(Math.random()*25);
+    let numb = Math.floor(Math.random()*25);
+    return numb
 };
 
 //clear info if no search found
 const clearInfo = () =>{
-    pokeName.textContent = ""
+    pokeName.textContent = "";
     pokeType.textContent = "";
     pokeHeight.textContent = "";
     pokeMove1.textContent = "";
