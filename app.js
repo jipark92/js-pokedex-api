@@ -16,7 +16,7 @@ const getPokeMon = (pokemon) => {
         return response.json();
     })
     .then ((response)=>{
-        // console.log(response)
+        console.log(response)
         showInfo(response);
         capitalizeLetter();
     })
@@ -29,9 +29,8 @@ const getPokeMon = (pokemon) => {
 //grab API data if there is a word in the input box
 const getData = () => {
     searchBtn.addEventListener('click',() =>{
-        let pokemon = inputBox.value;
+        let pokemon = inputBox.value.toLowerCase();
         if(inputBox.value === "" || inputBox.value === null){
-            console.log('no data');
             return;
         } else if (inputBox.value) {
             getPokeMon(pokemon);
@@ -47,12 +46,21 @@ const showInfo = (response) => {
     pokeMonImg.src = response.sprites.front_default;
     pokeName.textContent = response.name;
     pokeType.textContent = response.types[0].type.name;
-    pokeHeight.textContent = response.height + "ft";
-    pokeMove1.textContent = response.moves[0].move.name;
-    pokeMove2.textContent = response.moves[1].move.name;
-    pokeMove3.textContent = response.moves[2].move.name;
-    pokeMove4.textContent = response.moves[3].move.name;
+    pokeHeight.textContent = response.height + "ft";    
+    //no same moves
+    if (randomNumber() === randomNumber()){
+        return
+    } else {
+        pokeMove1.textContent = response.moves[randomNumber()].move.name;
+        pokeMove2.textContent = response.moves[randomNumber()].move.name;
+        pokeMove3.textContent = response.moves[randomNumber()].move.name;
+        pokeMove4.textContent = response.moves[randomNumber()].move.name;
+    }
 };
+
+const randomNumber = () => {
+    return Math.floor(Math.random()*35)
+}
 
 //clear info if no search found
 const clearInfo = () =>{
