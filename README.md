@@ -5,4 +5,6 @@ For this project, I am going back to vanilla javascript to maintain my javascrip
 
 
 
-live page: https://norfkorean.github.io/js-pokedex-api/
+live github page: https://norfkorean.github.io/js-pokedex-api/
+
+live netlify page: https://jipark-js-pokedexapi.netlify.app/
