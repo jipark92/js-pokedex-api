@@ -62,10 +62,10 @@ body {
 }
 
 .input-box {
-    font-size: 1rem;
+    font-size: 1.2rem;
     width: 125px;
     border: 1px solid white;
-    padding: 0.2rem;
+    padding: 0.4rem;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
     border: 2px solid black;
@@ -78,9 +78,9 @@ body {
 
 .search-btn {
     border: 2px solid black;
-    font-size: 1rem;
+    font-size: 1.2rem;
     width: 100px;
-    padding: 0.2rem;
+    padding: 0.4rem;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
 }
@@ -107,7 +107,7 @@ body {
     border: 5px dotted white;
     border-radius: 25px;
     width: 80%;
-    height: 75%;
+    height: 78%;
     padding: 1.1rem;
     background-color: rgb(13, 238, 238);
 }
@@ -123,7 +123,7 @@ li {
     list-style: none;
 }
 
-@media (max-width: 925px) {
+@media (max-width: 950px) {
     input {
         border-radius: 25px
     }
