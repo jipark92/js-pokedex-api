@@ -16,13 +16,12 @@ const getPokeMon = (pokemon) => {
         return response.json();
     })
     .then ((response)=>{
-        console.log(response)
         showInfo(response);
         capitalizeLetter();
     })
     .catch(()=>{
         pokeMonImg.src = "https://img.icons8.com/stickers/344/error-cloud.png";
-        clearInfo()
+        clearInfo();
     })
 }
 
@@ -35,7 +34,7 @@ const getData = () => {
         } else if (inputBox.value) {
             getPokeMon(pokemon);
             pokeMonImg.style.visibility = "visible";
-            inputBox.value = ""
+            inputBox.value = "";
         }
     })
 }
@@ -59,20 +58,19 @@ const showInfo = (response) => {
 };
 
 const randomNumber = () => {
-    return Math.floor(Math.random()*35)
-}
+    return Math.floor(Math.random()*25);
+};
 
 //clear info if no search found
 const clearInfo = () =>{
     pokeName.textContent = ""
-    pokeType.textContent = ""
-    pokeHeight.textContent = ""
-    pokeMove1.textContent = ""
-    pokeMove2.textContent = ""
-    pokeMove3.textContent = ""
-    pokeMove4.textContent = ""
-}
-
+    pokeType.textContent = "";
+    pokeHeight.textContent = "";
+    pokeMove1.textContent = "";
+    pokeMove2.textContent = "";
+    pokeMove3.textContent = "";
+    pokeMove4.textContent = "";
+};
 
 const capitalizeLetter = () =>{
     //capitalizes name and type
